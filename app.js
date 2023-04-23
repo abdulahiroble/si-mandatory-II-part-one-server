@@ -1,6 +1,5 @@
 import express from 'express';
 import controller from './routes/controller.js'
-import cors from 'cors'
 import dotenv from 'dotenv';
 import connectDB from "./db/db.js";
 import passport from "passport"
@@ -15,8 +14,6 @@ app.use(session({
     cookie: { maxAge: 20 * 60 * 1000 } // 30 minutter
 }));
 
-app.use(cors())
-app.use(express.json());
 app.use(controller)
 app.use(passport.initialize())
 app.use(passport.session())

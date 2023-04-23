@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import passport from "../middleware/passport.js"
-import login from "../middleware/login.js"
 const router = Router();
 
 router.get('/auth/google',
@@ -10,13 +9,6 @@ router.get('/auth/google',
     }
     ));
 
-// router.get('/google/callback',
-//     passport.authenticate('google', { failureRedirect: '/login' }),
-//     function (req, res) {
-//         // res.session.isLoggedIn = { 'id': 'smellyhobo' }
-//         res.send('/profile');
-//     });
-
 router.get('/google/callback',
     passport.authenticate('google', {
         successRedirect: '/profile',
@@ -24,11 +16,15 @@ router.get('/google/callback',
     }));
 
 router.get('/login', (req, res) => {
-    res.send('<a href=/auth/google>Login here</a>')
+    res.send('<a href="/auth/google">Login here</a>')
 })
 
 router.get('/profile', (req, res) => {
-    res.send('<h1>User is logged in!</h1>')
+    if(req.session.passport){
+        res.send('<h1>User is logged in!</h1><br> <a href="/logout">Logout</a>')
+    }else{
+        res.send('<h1>Failed to log in, go back to </h1> <a href="/login">login page</a>')
+    }
 })
 
 router.get('/logout', (req, res) => {

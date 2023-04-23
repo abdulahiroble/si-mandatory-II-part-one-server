@@ -8,9 +8,6 @@ const KEY = process.env.CLIENT_ID;
 const SECRET = process.env.CLIENT_SECRET;
 const CALLBACK_URL = 'http://localhost:3000/google/callback';
 
-console.log(KEY)
-console.log(SECRET)
-
 const googleAuth = () => {
     return new GoogleStrategy({
         clientID: KEY,
@@ -19,7 +16,6 @@ const googleAuth = () => {
     }, async (accessToken, refreshToken, profile, done) => {
         try {
             const userCreated = await UserRepository.findOrCreateUser(profile)
-            // console.log(userCreated.object.id)
             done(null, { 'id': userCreated.object })
         } catch (error) {
             done(error);
