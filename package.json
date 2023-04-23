@@ -1,0 +1,31 @@
+{
+  "name": "si-mandatory-ii-part-one-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdulahiroble/si-mandatory-II-part-one-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdulahiroble/si-mandatory-II-part-one-server/issues"
+  },
+  "homepage": "https://github.com/abdulahiroble/si-mandatory-II-part-one-server#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.0.4",
+    "passport": "^0.6.0",
+    "passport-google-oauth2": "^0.2.0",
+    "simple-oauth2": "^5.0.0"
+  }
+}
